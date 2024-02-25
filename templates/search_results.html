@@ -1,0 +1,38 @@
+{% include "header.html" %}
+
+{% if response == False %}
+<div class="container" style="padding-top: 40px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <div class="alert alert-warning" role="alert">
+                <strong>No results found</strong> for "{{ query }}".
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container" style="padding-top: 40px;">
+    <div class="row">
+        {% for result in results %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <!-- Add a class to the img tag -->
+                <img class="card-img-top custom-img-size" src="{{ result.img_url }}" alt="{{ result.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ result.name }}</h5>
+                    <p class="card-text">{{ result.location }}</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Has sockets: {{ "Yes" if result.has_sockets else "No" }}</li>
+                        <li class="list-group-item">Has toilet: {{ "Yes" if result.has_toilet else "No" }}</li>
+                        <li class="list-group-item">Has WiFi: {{ "Yes" if result.has_wifi else "No" }}</li>
+                        <li class="list-group-item">Can take calls: {{ "Yes" if result.can_take_calls else "No" }}</li>
+                        <li class="list-group-item">Seats: {{ result.seats }}</li>
+                        <li class="list-group-item">Coffee price: {{ result.coffee_price }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

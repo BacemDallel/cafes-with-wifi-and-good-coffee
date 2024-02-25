@@ -1,0 +1,39 @@
+{% include "header.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 40px;">
+    <div class="row">
+        {% for cafe in cafes %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <!-- Add a class to the img tag -->
+                <img class="card-img-top custom-img-size" src="{{ cafe.img_url }}" alt="{{ cafe.name }}">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-weight: bold;">{{ cafe.name }}</h5>
+                    <p class="card-text">{{ cafe.location }}</p>
+                    {% set creator = User.query.get(cafe.user_id) %} <!-- Query the User with the user_id -->
+                    <p class="card-text">Uploaded by: {{ creator.username }}</p> <!-- Display the username -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Has sockets: {{ "Yes" if cafe.has_sockets else "No" }}</li>
+                        <li class="list-group-item">Has toilet: {{ "Yes" if cafe.has_toilet else "No" }}</li>
+                        <li class="list-group-item">Has WiFi: {{ "Yes" if cafe.has_wifi else "No" }}</li>
+                        <li class="list-group-item">Can take calls: {{ "Yes" if cafe.can_take_calls else "No" }}</li>
+                        <li class="list-group-item">Seats: {{ cafe.seats }}</li>
+                        <li class="list-group-item">Coffee price: {{ cafe.coffee_price }}</li>
+                        <li class="list-group-item text-center" style="padding-top: 20px;">
+                            <a href="{{cafe.map_url}}" class="btn btn-primary" target="_blank">Visit on maps</a>
+                            <a href="{{ url_for('reviews', cafe_id=cafe.id) }}" class="btn btn-primary" target="_blank" style="margin-left: 20px;">Reviews</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% include "footer.html" %}

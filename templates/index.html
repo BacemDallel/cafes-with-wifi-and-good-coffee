@@ -1,0 +1,122 @@
+{% include "header.html" %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<header class="masthead position-relative" style="background-image: url('https://perfectdailygrind.com/wp-content/uploads/2019/11/rowney-5.jpg'); background-size: cover">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <!-- Header content goes here -->
+          <header class="intro text-center">
+<h1 style="font-size: 7rem; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);margin-top: -150;">Find Your Workspace,<br>Anywhere</h1>  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-8">
+        <p style="font-size: 1.5rem; color: white; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Whether it's a cozy cafe or a bustling coworking space, explore diverse environments to fuel your productivity and creativity.
+</p>
+<a class="btn btn-warning px-4 py-2" style="margin-top: 20px;" href="{{ url_for('cities') }}">Explore Cities</a>
+        <br><br>
+
+        <a class="btn btn-primary  px-4 py-2" href="{{ url_for('suggest') }}">Suggest a laptop friendly place now!</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% block content %}
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+<div class="col-lg-4">
+  <div class="text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 -960 960 960" width="300"><path d="M80-160q-33 0-56.5-23.5T0-240h160q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240h160q0 33-23.5 56.5T880-160H80Zm400-40q17 0 28.5-11.5T520-240q0-17-11.5-28.5T480-280q-17 0-28.5 11.5T440-240q0 17 11.5 28.5T480-200ZM160-320h640v-440H160v440Zm0 0v-440 440Z"/></svg>
+    <h2 class="fw-bold" style="padding-left: 40px;">BE PRODUCTIVE</h2>
+    <p style="margin-top: 23px;">Find venues with reliable Wi-Fi, ample power sockets, and comfy seating areas.</p>
+  </div>
+</div>
+<!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+            <div class="text-center">
+<svg xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 -960 960 960" width="300"><path d="M480-254.117q71.572 0 129.684-39.92 58.113-39.921 81.982-106.181H268.334q24.536 66.26 82.315 106.181 57.779 39.92 129.351 39.92ZM302.478-519.739l47.355-45.319 44.718 45.319 46.739-46.942-92.058-92.551-92.551 92.551 45.797 46.942Zm263.638 0 44.717-45.319 47.356 45.319 46.173-46.942-92.927-92.551-91.681 92.551 46.362 46.942ZM480.052-54.145q-87.883 0-165.761-33.306-77.879-33.307-135.846-91.076-57.968-57.77-91.134-135.654-33.166-77.885-33.166-165.767 0-87.883 33.306-165.761 33.307-77.879 91.017-135.866 57.71-57.988 135.622-91.322 77.913-33.335 165.827-33.335t165.837 33.446q77.923 33.446 135.882 91.185 57.959 57.739 91.278 135.691 33.318 77.951 33.318 165.91 0 87.935-33.475 165.807-33.475 77.872-91.264 135.794-57.79 57.922-135.674 91.088-77.885 33.166-165.767 33.166ZM480-480Zm.12 329.42q137.594 0 233.447-95.973 95.853-95.974 95.853-233.567 0-137.594-95.973-233.447-95.974-95.853-233.567-95.853-137.594 0-233.447 95.973-95.853 95.974-95.853 233.567 0 137.594 95.973 233.447 95.974 95.853 233.567 95.853Z"/></svg>
+<h2 class="fw-bold" style="padding-left: 40px;">FEEL WELCOME</h2>
+          <p  class="text-center" style="margin-top: 23px;">Discover the best times to work, based on community data.</p>
+                  </div>
+
+            </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+                      <div class="text-center">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="80" viewBox="0 -960 960 960" width="300" ><path d="M480-301.391q48 0 85.5-28.783t54.5-73.217H340q17 44.434 54.5 73.217t85.5 28.783Zm-100-160q25 0 42.5-17.5t17.5-42.5q0-24.623-17.5-42.312-17.5-17.688-42.5-17.688t-42.5 17.688Q320-546.014 320-521.391q0 25 17.5 42.5t42.5 17.5Zm200 0q25 0 42.5-17.5t17.5-42.5q0-24.623-17.5-42.312-17.5-17.688-42.5-17.688t-42.5 17.688Q520-546.014 520-521.391q0 25 17.5 42.5t42.5 17.5ZM292.446-719.983l117.322-151.843q12.932-17.814 31.501-26.443 18.57-8.629 38.827-8.629 20.699 0 39.16 8.629 18.46 8.629 31.976 26.443l116.841 151.585 177.347 59.589q29.126 9.995 44.853 34.195Q906-602.258 906-573.82q0 13-3.818 26.903-3.818 13.903-12.269 25.642L776.797-359.238l4 171.919q0 38.833-27.71 65.627-27.71 26.793-65.475 26.793-2.409 0-20.771-2.456L480-149.68 293.955-97.419q-5.762 1.721-11.376 2.186-5.613.465-10.653.465-37.065 0-64.894-27.015-27.829-27.014-26.829-66.536l4-171.535-113.42-162.043q-9.379-12.803-13.008-26.3-3.63-13.496-3.63-26.428 0-28.835 15.883-53.102 15.884-24.267 45.929-32.925l176.489-59.331Zm58.786 82.635-196.826 66.304L283.203-388.73l-6.435 194.744 203.449-56.26 204.015 56.927-5.435-195.192 127.232-181.533-196.783-67.304-128.681-169.014-129.333 169.014Zm129.203 136.536Z"/></svg>
+<h2 class="fw-bold" style="padding-left: 40px;">STAY INSPIRED</h2>
+          <p  class="text-center"  style="margin-top: 23px ;">Uncover new places with laid-back ambiance, and friendly vibes.</p>
+                  </div>
+                      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+<br><br>
+
+    <hr class="featurette-divider">
+<br><br>
+
+    <div class="container text-center">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h2 class="fw-bold" style="margin-top: 50px;margin-bottom: .5rem;">LaptopFriendly partners with local venues</h2>
+      <p style="margin-bottom: 50px;">that appreciate and support the remote worker culture. All locations are carefully inspected and manually approved by our curation team.</p>
+    </div>
+  </div>
+</div>
+    <br><br>
+
+        <hr class="featurette-divider">
+<br><br>
+
+    <div class="row featuretten">
+<div class="col-md-7 text-center">
+    <h2 class="featurette-heading fw-bold lh-1 mb-4">FIND THE BEST CAFES</h2>
+    <p class="lead">Discovering the best cafes is easier than ever with our website. Search for cafes based on location,
+        amenities, and more, ensuring you find the perfect spot for your next coffee fix. Detailed information and user
+        reviews help you make informed decisions, while community engagement
+        features foster connections among coffee enthusiasts. Find your next favorite cafe today!</p>
+</div>
+
+      <div class="col-md-5">
+    <img src="https://images.pexels.com/photos/38271/ipad-map-tablet-internet-38271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Placeholder image">
+      </div>
+    </div>
+<br><br>
+
+            <hr class="featurette-divider">
+<br><br>
+
+
+
+
+
+
+
+
+
+<div class="p-5 mb-4 rounded-3 text-center custom-bg">
+  <div class="container-fluid py-5 bg-body-tertiary">
+    <h3 class="display-7 fw-bold">Keep being updated with our forum</h3>
+    <p class="col-md-20 fs-4">Stay informed and engaged by participating in our forum discussions. Our community members share valuable insights, updates, and tips to help you stay ahead. Join the conversation today!</p>
+    <button class="btn btn-primary btn-lg" type="button">Join the Forum</button>
+  </div>
+</div>
+<br>
+
+
+
+
+
+
+  </div>
+{% endblock %}
+
+{% include "footer.html" %}

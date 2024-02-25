@@ -1,0 +1,17 @@
+{% from "bootstrap5/form.html" import render_form %}
+
+{% block content %}
+    {% include "header.html" %}
+
+    <div class="container" style="background-color: #f8f9fa;">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="mt-5 mb-3">Suggest a Place</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {{ render_form(form) }}
+            </div>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+{% endblock %}

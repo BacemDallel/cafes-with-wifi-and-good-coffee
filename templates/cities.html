@@ -1,0 +1,20 @@
+{% include "header.html" %}
+
+{% block content %}
+
+<div class="container" style="padding-top: 50px;">
+    {% for country, locations in cafes_by_country.items() %}
+        <br>
+        <section>
+            <h2 style="font-weight: bold; text-align: center; padding-bottom: 20px; padding-top: 20px;">{{ country }}</h2>
+            {% set unique_locations = locations | unique %}
+            {% for location in unique_locations|sort %}
+                <a class="btn btn-lg bd-btn-lg btn-outline-secondary" style="margin-right: 10px; margin-bottom: 10px;" href="{{ url_for('cafes', location=location) }}">{{ location }}</a>
+            {% endfor %}
+        </section>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% include "footer.html" %}

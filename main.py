@@ -1,3 +1,4 @@
+import os
 import random
 from sqlite3 import IntegrityError
 from flask import Flask, render_template, request, redirect, url_for, flash, session
@@ -15,7 +16,6 @@ from wtforms import StringField, SubmitField, TextAreaField, PasswordField, Bool
 from wtforms.validators import DataRequired, URL
 import smtplib
 
-
 '''
 Make sure the required packages are installed: 
 Open the Terminal in PyCharm (bottom left). 
@@ -29,13 +29,12 @@ pip3 install -r requirements.txt
 This will install the packages from the requirements.txt for this project.
 '''
 
-
-
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'  # SQLite database file path
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cafes.db'  # SQLite database file path
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATA_BASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 bootstrap = Bootstrap5(app)
 db = SQLAlchemy(app)
 
@@ -107,7 +106,6 @@ def index():
     return render_template('index.html')
 
 
-
 class RegisterForm(FlaskForm):
     name = StringField("User Name", validators=[DataRequired()])
     email = StringField("Email Address", validators=[DataRequired(), Email()])
@@ -147,7 +145,6 @@ def register():
                 # Automatically log in the user after registration
                 login_user(new_user)
 
-
                 return redirect(url_for('index'))
             except IntegrityError:
                 # In case of any database integrity errors
@@ -157,13 +154,10 @@ def register():
     return render_template("register.html", form=form)
 
 
-
 class LoginForm(FlaskForm):
     email = StringField("Email Adress", validators=[DataRequired()])
     password = PasswordField("Password", validators=[DataRequired()])
     submit = SubmitField("Login")
-
-
 
 
 # Make a login route logic
@@ -210,7 +204,6 @@ def cafes(location):
     return render_template('cafe.html', cafes=cafes, User=User)
 
 
-
 @app.route('/search')
 def search():
     response = True
@@ -222,10 +215,6 @@ def search():
         response = False
     query = request.args.get('query')
     return render_template('search_results.html', results=results, query=query, response=response)
-
-
-
-
 
 
 class EmailSender:
@@ -263,7 +252,6 @@ class ResetPasswordForm(FlaskForm):
 
 @app.route('/reset-password/', methods=['GET', 'POST'])
 def reset_password():
-
     reset_form = ResetPasswordForm()
 
     if reset_form.validate_on_submit():
@@ -343,9 +331,11 @@ def suggest():
         return redirect(url_for('cities'))
     return render_template('suggest.html', form=form)
 
+
 class CommentForm(FlaskForm):
     content = TextAreaField('Comment', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
 
 @app.route('/reviews/<cafe_id>', methods=['GET', 'POST'])
 def reviews(cafe_id):
@@ -371,7 +361,5 @@ def reviews(cafe_id):
     return render_template("reviews.html", cafe=cafe_info, form=form, comments=comments)
 
 
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

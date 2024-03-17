@@ -75,9 +75,9 @@ class Cafe(db.Model):
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(100), unique=True, nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
+    username = db.Column(db.String(200), unique=True, nullable=False)
+    email = db.Column(db.String(200), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
         return self.username
@@ -108,7 +108,7 @@ def index():
 
 
 class RegisterForm(FlaskForm):
-    name = StringField("User Name", validators=[DataRequired()])
+    username = StringField("User Name", validators=[DataRequired()])
     email = StringField("Email Address", validators=[DataRequired(), Email()])
     password = PasswordField("Password", validators=[
         DataRequired(),
@@ -133,7 +133,7 @@ def register():
 
             # Create a new user object with hashed password
             new_user = User(
-                username=form.name.data,
+                username=form.username.data,
                 email=form.email.data,
                 password=hashed_password
             )

@@ -21,6 +21,7 @@
                         <li class="list-group-item">Can take calls: {{ "Yes" if cafe.can_take_calls else "No" }}</li>
                         <li class="list-group-item">Seats: {{ cafe.seats }}</li>
                         <li class="list-group-item">Coffee price: {{ cafe.coffee_price }}</li>
+                        <li class="list-group-item">Open in Ramdhan: {{ "Yes" if cafe.open_in_ramadhan else "No" }}</li>
                         <li class="list-group-item text-center" style="padding-top: 20px;">
                             <a href="{{cafe.map_url}}" class="btn btn-primary" target="_blank">Visit on maps</a>
                             <a href="{{ url_for('reviews', cafe_id=cafe.id) }}" class="btn btn-primary" target="_blank" style="margin-left: 20px;">Reviews</a>

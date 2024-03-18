@@ -65,6 +65,9 @@ class Cafe(db.Model):
     seats = db.Column(db.String(50))
     coffee_price = db.Column(db.String(50))
 
+    # New column for open_in_ramadhan
+    open_in_ramadhan = db.Column(db.Boolean, default=False)
+
     # Add a foreign key relationship to the User model
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     user = db.relationship('User', backref=db.backref('cafes', lazy=True))

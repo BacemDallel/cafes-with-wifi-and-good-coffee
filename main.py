@@ -298,12 +298,14 @@ class CafeForm(FlaskForm):
     map_url = StringField('Map URL', validators=[URL(), DataRequired()])
     img_url = StringField('Image URL', validators=[URL(), DataRequired()])
     location = StringField('City', validators=[DataRequired()])
+    open_in_ramadhan = BooleanField('Open in Ramdhan', default=False)
     has_sockets = BooleanField('Has Sockets', default=False)
     has_toilet = BooleanField('Has Toilet', default=False)
     has_wifi = BooleanField('Has WiFi', default=False)
     can_take_calls = BooleanField('Can Take Calls', default=False)
     seats = StringField('Seats', validators=[DataRequired()])
     coffee_price = StringField('Coffee Price', validators=[DataRequired()])
+
     submit = SubmitField('Submit')
 
 
@@ -324,7 +326,9 @@ def suggest():
             can_take_calls=form.can_take_calls.data,
             seats=form.seats.data,
             coffee_price=form.coffee_price.data,
+            open_in_ramadhan=form.open_in_ramadhan.data,
             user_id=current_user.id
+
 
         )
         db.session.add(new_cafe)
